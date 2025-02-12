@@ -1,0 +1,10 @@
+<p>Welcome to the {{name}} page</p>
+
+<button (click)="toggle()">Toggle</button>
+<p> {{ listTypeName }}</p>
+
+<div *ngIf="checklist.length > 0">
+  <app-checklist-list [list]="filteredList" (checkBoxTicked)="checkBoxChanged($event)">HELo</app-checklist-list>
+</div>
+
+{{ (filteredList.length == 0 && listType == ListState.Incomplete) ? "All goals have been completed" : ""}}

@@ -1,0 +1,6 @@
+<table>
+    <tr [ngClass]="e ? 'even' : 'odd'" *ngFor="let item of list; let e = even; let o = odd">
+        <td><input type="checkbox" [id]="item.itemId" [checked]="item.completed" (click)="checkBoxChanged(item)"></td>
+        <td>{{ item.itemName }}</td>
+    </tr>
+</table>
