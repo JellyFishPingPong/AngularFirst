@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { ChecklistComponent } from './checklist/checklist.component'; // Import ChecklistComponent
 import { RouterModule } from '@angular/router';
 import { NavigationComponent } from './navigation/navigation.component';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',

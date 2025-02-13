@@ -38,7 +38,7 @@ export class ChecklistComponent implements OnInit {
   refreshList() {
     switch (this.listType) {
       case ListType.Incomplete:
-        this.listTypeName = "Goals"
+        this.listTypeName = "To-Do-List"
         this.filteredList = this.checklist.filter(item => !item.completed);
         break;
       case ListType.Completed:

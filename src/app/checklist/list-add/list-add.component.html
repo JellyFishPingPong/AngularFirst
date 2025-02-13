@@ -1,0 +1,15 @@
+<div class="content">
+    <div *ngIf="successMessage !== ''">
+        {{ successMessage }}
+    </div>
+
+    <form #listForm="ngForm" (ngSubmit)="addItem(listForm)">
+        <div class="form-group">            
+            <input required type="text" name="itemName" placeholder="Goal" [(ngModel)]="item.itemName">
+        </div>
+
+        <div>
+            <button [disabled]="listForm.invalid" mat-flat-button type="submit">Submit</button>
+        </div>
+    </form>
+</div>

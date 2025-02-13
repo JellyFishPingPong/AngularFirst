@@ -1,15 +1,16 @@
 <div class="content">
 
-  <h3>Welcome to the {{name}} page</h3>
 
+  <div class="flex-r checklist-header">
 
-  <button mat-flat-button (click)="toggle()">Toggle</button>
-  <p> {{ listTypeName }}</p>
-  
+    <h3 style="padding-left: 10px; margin-top: 20px;"> {{ listTypeName }}</h3>
+    <button mat-flat-button (click)="toggle()">Toggle</button>
+  </div>
+
   <div *ngIf="checklist.length > 0">
     <app-checklist-list [list]="filteredList" (checkBoxTicked)="checkBoxChanged($event)"></app-checklist-list>
   </div>
-  
+
   {{ (filteredList.length == 0 && listType == ListState.Incomplete) ? "All goals have been completed" : ""}}
-  
+
 </div>

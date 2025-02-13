@@ -5,8 +5,9 @@
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item [routerLink]="''">All Goals</a>
+      <a mat-list-item [routerLink]="'longTermGoals'">Long Term Goals</a>
       <a mat-list-item [routerLink]="'dailyGoals'">Daily Goals</a>
+      <a mat-list-item [routerLink]="'goals/add'">Add Goals</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

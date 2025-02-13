@@ -2,12 +2,13 @@ import { Component, Input, input, Output, EventEmitter, ChangeDetectionStrategy 
 import { ListItem } from '../checklist';
 import { CommonModule } from '@angular/common';
 import { MatCheckboxModule } from '@angular/material/checkbox'
+import { MatButtonModule } from '@angular/material/button'
 import { RouterModule } from '@angular/router';
 
 
 @Component({
   selector: 'app-checklist-list',
-  imports: [CommonModule, MatCheckboxModule, RouterModule],
+  imports: [CommonModule, MatCheckboxModule, RouterModule, MatButtonModule],
   templateUrl: './checklist-list.component.html',
   styleUrls: ['./checklist-list.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
