@@ -1,10 +1,15 @@
-<p>Welcome to the {{name}} page</p>
+<div class="content">
 
-<button (click)="toggle()">Toggle</button>
-<p> {{ listTypeName }}</p>
+  <h3>Welcome to the {{name}} page</h3>
 
-<div *ngIf="checklist.length > 0">
-  <app-checklist-list [list]="filteredList" (checkBoxTicked)="checkBoxChanged($event)">HELo</app-checklist-list>
+
+  <button mat-flat-button (click)="toggle()">Toggle</button>
+  <p> {{ listTypeName }}</p>
+  
+  <div *ngIf="checklist.length > 0">
+    <app-checklist-list [list]="filteredList" (checkBoxTicked)="checkBoxChanged($event)"></app-checklist-list>
+  </div>
+  
+  {{ (filteredList.length == 0 && listType == ListState.Incomplete) ? "All goals have been completed" : ""}}
+  
 </div>
-
-{{ (filteredList.length == 0 && listType == ListState.Incomplete) ? "All goals have been completed" : ""}}

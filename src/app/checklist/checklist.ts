@@ -1,5 +1,5 @@
 export interface ListItem {
-    itemId : number;
+    itemId : string;
     itemName : string;
     completed: boolean;
 }

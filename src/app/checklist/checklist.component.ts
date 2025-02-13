@@ -3,13 +3,14 @@ import { ListItem, ListType } from './checklist';
 import { CommonModule } from '@angular/common';
 import { ChecklistListComponent } from './checklist-list/checklist-list.component';
 import { ChecklistService } from './service/checklist.service';
+import { MatButtonModule } from '@angular/material/button'
 
 @Component({
   selector: 'app-checklist',
   templateUrl: './checklist.component.html',
   styleUrls: ['./checklist.component.scss'],
   standalone: true,
-  imports: [CommonModule, ChecklistListComponent]
+  imports: [CommonModule, ChecklistListComponent, MatButtonModule]
 })
 export class ChecklistComponent implements OnInit {
   name = 'checklist';
