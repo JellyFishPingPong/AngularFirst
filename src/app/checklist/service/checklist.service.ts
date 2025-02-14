@@ -63,7 +63,7 @@ export class ChecklistService {
     } else {
       // Ensure last item exists and get its itemId, otherwise start from 0
       if (this.dailyGoals.length > 0) {
-        const lastItem = this.dailyGoals[this.checklist.length - 1];
+        const lastItem = this.dailyGoals[this.dailyGoals.length - 1];
 
         // Explicitly check if lastItem.itemId is not undefined
         if (lastItem.itemId) {

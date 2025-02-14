@@ -27,6 +27,7 @@ name = 'checklist';
 
   ngOnInit() {
     this.checklist = this.checklistService.getDailyGoals();
+    console.log(this.checklist)
   }
 
   toggle() {

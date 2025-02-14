@@ -1,16 +1,18 @@
 <div class="content">
+    <h3>Long Term Goal</h3>
     <div *ngIf="successMessage !== ''">
         {{ successMessage }}
     </div>
 
-    <form #listForm="ngForm" (ngSubmit)="addItem(listForm)">
-        <mat-form-field appearance="outline">   
+    <form #listForm="ngForm" (ngSubmit)="addItem(listForm)" style="width: 300px;">
+        <mat-form-field appearance="outline" style="width: 100%;">   
             <mat-label>Goal</mat-label>
             <input matInput name="itemName" placeholder="" required [(ngModel)]="item.itemName">
           </mat-form-field>
 
-        <div>
+        <div class="flex-r" style="justify-content: space-between;">
             <button [disabled]="listForm.invalid" mat-flat-button type="submit">Submit</button>
+            <button mat-flat-button [routerLink]="'/goals/longTermGoals'" type="button">Back</button>
         </div>
     </form>
 </div>

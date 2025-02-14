@@ -7,11 +7,12 @@ import { MatButtonModule } from '@angular/material/button'
 import { ChecklistService } from '../../checklist/service/checklist.service';
 import { ListItem } from '../../checklist/checklist';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-add-goals',
   imports: [ReactiveFormsModule, MatFormFieldModule, MatIconModule, MatInputModule, MatButtonModule,
-    CommonModule, FormsModule
+    CommonModule, FormsModule, RouterModule
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: './add-goals.component.html',

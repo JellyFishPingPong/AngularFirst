@@ -7,10 +7,13 @@ import { ListItem } from '../checklist';
 import { CommonModule } from '@angular/common';
 import { FormsModule, NgForm } from '@angular/forms';
 import { ChecklistService } from '../service/checklist.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-list-add',
-  imports: [MatFormFieldModule, CommonModule, FormsModule, MatButtonModule, MatIconModule, MatInputModule],
+  imports: [MatFormFieldModule, CommonModule, FormsModule, MatButtonModule, MatIconModule, MatInputModule,
+    RouterModule
+  ],
   templateUrl: './list-add.component.html',
   styleUrl: './list-add.component.scss'
 })
