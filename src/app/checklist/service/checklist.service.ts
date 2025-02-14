@@ -10,16 +10,15 @@ export class ChecklistService {
 
   checklist: LongTermGoal[] = [
     { itemId: '1', itemName: 'Finish the video', completed: false },
-    { itemId: '2', itemName: 'Buy toothpaste', completed: false },
+    { itemId: '2', itemName: 'Flush the toilet', completed: false },
     { itemId: '3', itemName: 'Buy toothbrush', completed: false },
   ];
 
 
   dailyGoals: DailyGoal[] = [
-    { itemId: '1', itemName: 'Brush my teeth', completed: false },
-    { itemId: '2', itemName: 'Flush the toilet', completed: false },
+    { itemId: '1', itemName: 'Wake Up', completed: true },
+    { itemId: '2', itemName: 'Go to work', completed: true },
     { itemId: '3', itemName: 'Workout', completed: false },
-    { itemId: '4', itemName: 'Wash face', completed: true }
   ];
 
   getListItem() {

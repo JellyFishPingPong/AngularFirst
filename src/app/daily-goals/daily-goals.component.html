@@ -14,6 +14,8 @@
     (delete)="Delete($event)"></app-checklist-list>
   </div>
 
-  {{ (checklist.length == 0 && listType == ListState.Incomplete) ? "All goals have been completed" : ""}}
+  <p style="margin-top: 15px; padding-left: 10px;">
+    {{ (checklist.length == 0 && listType == ListState.Incomplete) ? "All goals have been completed" : ""}}
+  </p>
 
 </div>

@@ -16,6 +16,6 @@
     (delete)="Delete($event)"></app-checklist-list>
   </div>
 
-  {{ (filteredList.length == 0 && !showAll) ? "All goals have been completed" : ""}}
-
+  <p style="margin-top: 15px; padding-left: 10px;">{{ (filteredList.length == 0 && !showAll) ? "All goals have been completed" : ""}}
+  </p>
 </div>
