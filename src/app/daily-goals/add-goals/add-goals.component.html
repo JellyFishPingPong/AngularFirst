@@ -1,0 +1,16 @@
+<div class="content">
+    <h3>Daily Goals</h3>
+    <div *ngIf="successMessage !== ''">
+        {{ successMessage }}
+    </div>
+    <form [formGroup]="goalForm" (ngSubmit)="addGoal()">
+        <mat-form-field appearance="outline">
+            <mat-label>Goal</mat-label>
+            <input matInput formControlName="itemName" placeholder="" required>
+        </mat-form-field>
+
+        <div>
+            <button [disabled]="goalForm.invalid" mat-flat-button type="submit">Submit</button>
+        </div>
+    </form>
+</div>

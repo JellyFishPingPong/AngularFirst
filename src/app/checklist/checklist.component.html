@@ -3,14 +3,18 @@
 
   <div class="flex-r checklist-header">
 
-    <h3 style="padding-left: 10px; margin-top: 20px;"> {{ listTypeName }}</h3>
-    <button mat-flat-button (click)="toggle()">Toggle</button>
+    <h3 style="padding-left: 10px;"> {{ listTypeName }}</h3>
+    <button mat-flat-button (click)="toggle()">{{ buttonText }}</button>
   </div>
+
+  <button mat-flat-button [routerLink]="'/goals/add'" >Add Goal</button>
 
   <div *ngIf="checklist.length > 0">
-    <app-checklist-list [list]="filteredList" (checkBoxTicked)="checkBoxChanged($event)"></app-checklist-list>
+    <app-checklist-list [list]="filteredList" 
+    (checkBoxTicked)="checkBoxChanged($event)"
+    (delete)="delete($event)"></app-checklist-list>
   </div>
 
-  {{ (filteredList.length == 0 && listType == ListState.Incomplete) ? "All goals have been completed" : ""}}
+  {{ (filteredList.length == 0 && !showAll) ? "All goals have been completed" : ""}}
 
 </div>

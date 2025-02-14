@@ -17,10 +17,17 @@ export class ChecklistListComponent {
   @Input() list: ListItem[] = [];
 
   @Output() checkBoxTicked = new EventEmitter<ListItem>();
+  @Output() delete = new EventEmitter<string>();
   
   checkBoxChanged(item: ListItem) {
     this.checkBoxTicked.emit(item)
     console.log('Event emitted from child: ', item);
+
+  }
+
+  Delete(itemId ?: string) {
+    this.delete.emit(itemId)
+    console.log('Event emitted from child: ', itemId);
 
   }
 }

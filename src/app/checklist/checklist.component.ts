@@ -4,13 +4,14 @@ import { CommonModule } from '@angular/common';
 import { ChecklistListComponent } from './checklist-list/checklist-list.component';
 import { ChecklistService } from './service/checklist.service';
 import { MatButtonModule } from '@angular/material/button'
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-checklist',
   templateUrl: './checklist.component.html',
   styleUrls: ['./checklist.component.scss'],
   standalone: true,
-  imports: [CommonModule, ChecklistListComponent, MatButtonModule]
+  imports: [CommonModule, ChecklistListComponent, MatButtonModule, RouterModule]
 })
 export class ChecklistComponent implements OnInit {
   name = 'checklist';
@@ -18,7 +19,8 @@ export class ChecklistComponent implements OnInit {
   ListState = ListType;
   checklist : ListItem[] = [];
 
-  listType = 0;
+  buttonText = "Show Incomplete";
+  showAll = true;
   listTypeName = "";
   filteredList: ListItem[] = [];
 
@@ -31,25 +33,21 @@ export class ChecklistComponent implements OnInit {
   }
 
   toggle() {
-    this.listType = (this.listType + 1) % 3;
+    this.showAll = !this.showAll;
     this.refreshList();
   }
 
   refreshList() {
-    switch (this.listType) {
-      case ListType.Incomplete:
-        this.listTypeName = "To-Do-List"
-        this.filteredList = this.checklist.filter(item => !item.completed);
-        break;
-      case ListType.Completed:
-        this.listTypeName = "Completed Goals"
-        this.filteredList = this.checklist.filter(item => item.completed);
-        break;
-      case ListType.All:
-        this.listTypeName = "All Goals"
-        this.filteredList = [...this.checklist]; // Full list
-        break;
+    if(this.showAll) {
+      this.listTypeName = "All Goals";
+      this.buttonText = "Show incomplete"
+      this.filteredList = [...this.checklist]; // Full list
+    } else {
+      this.listTypeName = "To-Do-List"
+      this.buttonText = "Show All"
+      this.filteredList = this.checklist.filter(item => !item.completed);
     }
+
   }
 
   // This method handles the event emitted from the child
@@ -57,5 +55,8 @@ export class ChecklistComponent implements OnInit {
     console.log('Event received in parent: ', item);
     item.completed = !item.completed;
     this.refreshList();
+  }
+
+  delete(itemId: string) {
   }
 }

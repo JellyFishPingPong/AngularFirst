@@ -4,9 +4,10 @@
     </div>
 
     <form #listForm="ngForm" (ngSubmit)="addItem(listForm)">
-        <div class="form-group">            
-            <input required type="text" name="itemName" placeholder="Goal" [(ngModel)]="item.itemName">
-        </div>
+        <mat-form-field appearance="outline">   
+            <mat-label>Goal</mat-label>
+            <input matInput name="itemName" placeholder="" required [(ngModel)]="item.itemName">
+          </mat-form-field>
 
         <div>
             <button [disabled]="listForm.invalid" mat-flat-button type="submit">Submit</button>

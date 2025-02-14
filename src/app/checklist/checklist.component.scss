@@ -1,6 +1,11 @@
 .checklist-header {
-    width: 300px;
+    width: 400px;
     justify-content: space-between;
     align-items: center;
     gap: 30px;
+    margin-bottom: 10px;
+}
+
+.checklist-header h3 {
+    margin: 0;
 }

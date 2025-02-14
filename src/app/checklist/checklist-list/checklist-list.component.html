@@ -1,11 +1,5 @@
 <table>
     <tbody>
-        <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-        </tr>
-
         <tr [ngClass]="e ? 'even' : 'odd'" *ngFor="let item of list; let e = even; let o = odd">
             <td>
                 <mat-checkbox type="checkbox" [checked]="item.completed" (click)="checkBoxChanged(item)"></mat-checkbox>
@@ -13,6 +7,7 @@
             <td>{{ item.itemName }}</td>
             <td style="padding-left: 30px; text-align: right;">
                 <button mat-flat-button [routerLink]="['/goals', item.itemId]" >Edit</button>
+                <button mat-flat-button (click)="Delete(item.itemId)" style="margin-left: 10px;" >Delete</button>
             </td>
         </tr>
     </tbody>

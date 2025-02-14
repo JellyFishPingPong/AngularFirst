@@ -1,1 +1,16 @@
-<p>daily-goals works!</p>
+<div class="content">
+
+
+  <div class="flex-r checklist-header">
+    <h3 style="padding-left: 10px;">Daily Goals</h3>
+  </div>
+
+  <button mat-flat-button [routerLink]="'/goals/daily/add'">Add Goal</button>
+
+  <div *ngIf="checklist.length">
+    <app-checklist-list [list]="checklist" (checkBoxTicked)="checkBoxChanged($event)"></app-checklist-list>
+  </div>
+
+  {{ (checklist.length == 0 && listType == ListState.Incomplete) ? "All goals have been completed" : ""}}
+
+</div>
