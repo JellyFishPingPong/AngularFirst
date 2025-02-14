@@ -8,7 +8,9 @@
   <button mat-flat-button [routerLink]="'/goals/daily/add'">Add Goal</button>
 
   <div *ngIf="checklist.length">
-    <app-checklist-list [list]="checklist" (checkBoxTicked)="checkBoxChanged($event)"
+    <app-checklist-list [list]="checklist" 
+    route="/goals/daily/edit/"
+    (checkBoxTicked)="checkBoxChanged($event)"
     (delete)="Delete($event)"></app-checklist-list>
   </div>
 

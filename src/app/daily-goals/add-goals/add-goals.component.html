@@ -3,14 +3,16 @@
     <div *ngIf="successMessage !== ''">
         {{ successMessage }}
     </div>
-    <form [formGroup]="goalForm" (ngSubmit)="addGoal()" style="width: 300px;">
+
+    <form [formGroup]="goalForm" (ngSubmit)="submit()" style="width: 300px;">
         <mat-form-field appearance="outline" style="width: 100%;">
             <mat-label>Goal</mat-label>
-            <input matInput formControlName="itemName" placeholder="" required >
+            <input matInput formControlName="itemName" placeholder="" required value="hi">
         </mat-form-field>
 
         <div class="flex-r" style="justify-content: space-between;">
-            <button [disabled]="goalForm.invalid" mat-flat-button type="submit">Submit</button>
+            <button [disabled]="goalForm.invalid" mat-flat-button type="submit">{{ isEdit? "Update" :
+                "Submit"}}</button>
             <button mat-flat-button [routerLink]="'/goals/dailyGoals'" type="button">Back</button>
         </div>
     </form>

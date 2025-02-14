@@ -8,9 +8,11 @@ import { AddGoalsComponent } from './daily-goals/add-goals/add-goals.component';
 
 const routes: Routes = [
   {path: 'longTermGoals', component: ChecklistComponent},
+  {path: 'add', component: ListAddComponent},
+  {path: 'edit/:id', component: ListAddComponent},
   {path: 'dailyGoals', component: DailyGoalsComponent},
   {path: 'daily/add', component: AddGoalsComponent},
-  {path: 'add', component: ListAddComponent},
+  {path: 'daily/edit/:id', component: AddGoalsComponent},
   {path: ':id', component: GoalsDetailComponent},];
 
 @NgModule({

@@ -4,14 +4,15 @@
         {{ successMessage }}
     </div>
 
-    <form #listForm="ngForm" (ngSubmit)="addItem(listForm)" style="width: 300px;">
-        <mat-form-field appearance="outline" style="width: 100%;">   
+    <form #listForm="ngForm" (ngSubmit)="submit(listForm)" style="width: 300px;">
+        <mat-form-field appearance="outline" style="width: 100%;">
             <mat-label>Goal</mat-label>
-            <input matInput name="itemName" placeholder="" required [(ngModel)]="item.itemName">
-          </mat-form-field>
+            <input matInput name="itemName" placeholder="" required [(ngModel)]="item.itemName" [value]="item.itemName">
+        </mat-form-field>
 
         <div class="flex-r" style="justify-content: space-between;">
-            <button [disabled]="listForm.invalid" mat-flat-button type="submit">Submit</button>
+            <button [disabled]="listForm.invalid" mat-flat-button type="submit">{{ isEdit? "Update" :
+                "Submit"}}</button>
             <button mat-flat-button [routerLink]="'/goals/longTermGoals'" type="button">Back</button>
         </div>
     </form>

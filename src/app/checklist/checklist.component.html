@@ -11,6 +11,7 @@
 
   <div *ngIf="checklist.length > 0">
     <app-checklist-list [list]="filteredList" 
+    route="/goals/edit/"
     (checkBoxTicked)="checkBoxChanged($event)"
     (delete)="Delete($event)"></app-checklist-list>
   </div>

@@ -26,6 +26,27 @@ export class ChecklistService {
     return this.checklist;
   }
 
+  
+  getItemById(itemId: string, type: number) {
+    if(type === 0) {
+      const index = this.checklist.findIndex(item => item.itemId === itemId);
+
+      if (index !== -1) {
+        // If item is found, update the item
+        return this.checklist[index] 
+      }
+    } else {
+      const index = this.dailyGoals.findIndex(item => item.itemId === itemId);
+
+      if (index !== -1) {
+        // If item is found, update the item
+        return this.dailyGoals[index] 
+      }
+    }
+
+    return undefined;
+  }
+
   getDailyGoals() {
     return this.dailyGoals;
   }
@@ -98,6 +119,33 @@ export class ChecklistService {
       return this.dailyGoals;
     }
 
+  }
+
+  // Method to edit an existing item
+  editItem(itemId: string, updatedItem: ListItem, type: number) {
+    if (type === 0) {
+      // Find the index of the item to be edited in the checklist
+      const index = this.checklist.findIndex(item => item.itemId === itemId);
+
+      if (index !== -1) {
+        // If item is found, update the item
+        this.checklist[index] = {
+          ...this.checklist[index],
+          ...updatedItem // Merge the updated properties
+        };
+      }
+    } else {
+      // Find the index of the item to be edited in the dailyGoals
+      const index = this.dailyGoals.findIndex(item => item.itemId === itemId);
+
+      if (index !== -1) {
+        // If item is found, update the item
+        this.dailyGoals[index] = {
+          ...this.dailyGoals[index],
+          ...updatedItem // Merge the updated properties
+        };
+      }
+    }
   }
 
 }

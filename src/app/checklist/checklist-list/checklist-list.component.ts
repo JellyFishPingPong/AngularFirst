@@ -15,6 +15,7 @@ import { RouterModule } from '@angular/router';
 })
 export class ChecklistListComponent {
   @Input() list: ListItem[] = [];
+  @Input() route: string = '';
 
   @Output() checkBoxTicked = new EventEmitter<ListItem>();
   @Output() delete = new EventEmitter<string>();
