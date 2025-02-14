@@ -8,7 +8,8 @@
   <button mat-flat-button [routerLink]="'/goals/daily/add'">Add Goal</button>
 
   <div *ngIf="checklist.length">
-    <app-checklist-list [list]="checklist" (checkBoxTicked)="checkBoxChanged($event)"></app-checklist-list>
+    <app-checklist-list [list]="checklist" (checkBoxTicked)="checkBoxChanged($event)"
+    (delete)="Delete($event)"></app-checklist-list>
   </div>
 
   {{ (checklist.length == 0 && listType == ListState.Incomplete) ? "All goals have been completed" : ""}}

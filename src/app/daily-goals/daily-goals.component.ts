@@ -38,4 +38,9 @@ name = 'checklist';
     console.log('Event received in parent: ', item);
     item.completed = !item.completed;
   }
+
+  Delete(itemId: string) {
+    this.checklist = this.checklistService.deleteItem(itemId, 1);
+    console.log(this.checklist);
+  }
 }

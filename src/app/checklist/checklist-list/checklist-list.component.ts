@@ -26,6 +26,7 @@ export class ChecklistListComponent {
   }
 
   Delete(itemId ?: string) {
+    
     this.delete.emit(itemId)
     console.log('Event emitted from child: ', itemId);
 

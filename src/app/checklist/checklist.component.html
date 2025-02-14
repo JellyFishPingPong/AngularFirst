@@ -12,7 +12,7 @@
   <div *ngIf="checklist.length > 0">
     <app-checklist-list [list]="filteredList" 
     (checkBoxTicked)="checkBoxChanged($event)"
-    (delete)="delete($event)"></app-checklist-list>
+    (delete)="Delete($event)"></app-checklist-list>
   </div>
 
   {{ (filteredList.length == 0 && !showAll) ? "All goals have been completed" : ""}}

@@ -17,14 +17,14 @@ export class ChecklistComponent implements OnInit {
   name = 'checklist';
 
   ListState = ListType;
-  checklist : ListItem[] = [];
+  checklist: ListItem[] = [];
 
   buttonText = "Show Incomplete";
   showAll = true;
   listTypeName = "";
   filteredList: ListItem[] = [];
 
-  constructor(private checklistService : ChecklistService) { 
+  constructor(private checklistService: ChecklistService) {
   }
 
   ngOnInit() {
@@ -38,7 +38,7 @@ export class ChecklistComponent implements OnInit {
   }
 
   refreshList() {
-    if(this.showAll) {
+    if (this.showAll) {
       this.listTypeName = "All Goals";
       this.buttonText = "Show incomplete"
       this.filteredList = [...this.checklist]; // Full list
@@ -57,6 +57,9 @@ export class ChecklistComponent implements OnInit {
     this.refreshList();
   }
 
-  delete(itemId: string) {
+  Delete(itemId: string) {
+    this.checklist = this.checklistService.deleteItem(itemId, 0)
+    console.log(this.checklist);
+    this.refreshList();
   }
 }

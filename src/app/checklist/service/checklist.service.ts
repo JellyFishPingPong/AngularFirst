@@ -85,4 +85,19 @@ export class ChecklistService {
     }
 
   }
+
+  // Method to delete an item by its itemId
+  deleteItem(itemId: string, type: number) {
+    if (type === 0) {
+      // Delete item from checklist
+      this.checklist = this.checklist.filter(item => item.itemId !== itemId);
+      return this.checklist;
+    } else {
+      // Delete item from dailyGoals
+      this.dailyGoals = this.dailyGoals.filter(item => item.itemId !== itemId);
+      return this.dailyGoals;
+    }
+
+  }
+
 }
