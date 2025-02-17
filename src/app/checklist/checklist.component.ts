@@ -5,13 +5,15 @@ import { ChecklistListComponent } from './checklist-list/checklist-list.componen
 import { ChecklistService } from './service/checklist.service';
 import { MatButtonModule } from '@angular/material/button'
 import { RouterModule } from '@angular/router';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-checklist',
   templateUrl: './checklist.component.html',
   styleUrls: ['./checklist.component.scss'],
   standalone: true,
-  imports: [CommonModule, ChecklistListComponent, MatButtonModule, RouterModule]
+  imports: [CommonModule, ChecklistListComponent, MatButtonModule, RouterModule, ReactiveFormsModule]
 })
 export class ChecklistComponent implements OnInit {
   name = 'checklist';
@@ -24,17 +26,26 @@ export class ChecklistComponent implements OnInit {
   listTypeName = "";
   filteredList: ListItem[] = [];
 
+  searchBar = new FormControl('')
+
+
   constructor(private checklistService: ChecklistService) {
   }
 
   ngOnInit() {
+    this.searchBar.valueChanges.pipe(map((searchText) => this.checklistService.filterGoals(searchText))).subscribe((filtered) => {
+      this.filteredList = filtered;
+    })
+
     this.checklist = this.checklistService.getListItem();
     this.refreshList();  // Initialize filteredList with default state
   }
 
+
   toggle() {
     this.showAll = !this.showAll;
     this.refreshList();
+    console.log(this.searchBar.value);
   }
 
   refreshList() {

@@ -1,5 +1,4 @@
 <div class="content">
-{{ checklist.values | json}}
 
   <div class="flex-r checklist-header">
     <h3 style="padding-left: 10px;">Daily Goals</h3>
@@ -7,8 +6,12 @@
 
   <button mat-flat-button [routerLink]="'/goals/daily/add'">Add Goal</button>
 
+  <div class="checklist-header">
+    <input type="text" class="search-bar" placeholder="Search" [formControl]="searchBar">
+  </div>
+
   <div *ngIf="checklist.length">
-    <app-checklist-list [list]="checklist" 
+    <app-checklist-list [list]="filteredList" 
     route="/goals/daily/edit/"
     (checkBoxTicked)="checkBoxChanged($event)"
     (delete)="Delete($event)"></app-checklist-list>

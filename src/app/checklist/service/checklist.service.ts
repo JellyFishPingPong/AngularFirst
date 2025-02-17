@@ -147,4 +147,15 @@ export class ChecklistService {
     }
   }
 
+  
+  // Method to filter goals based on search text
+  filterGoals(searchText: string | null) {
+    if (!searchText) {
+      return this.checklist; // If no search text, show all goals
+    }
+    return this.checklist.filter((goal) =>
+      goal.itemName.toLowerCase().includes(searchText.toLowerCase())
+    );
+  }
+
 }
